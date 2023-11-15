@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+	<title>M4103C-Projet-JS - Star Wars characteers</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon-js.ico">
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<section id="yes">
+		<section id="no">
+			<header>
+				<h1>Recherche de personnages Star Wars</h1>
+
+				<p id="explication">Cette page permet de rechercher des information sur les personnages Star Wars via l'API
+					publique de <a href="https://swapi.dev/" target="_blank">swapi.dev</a>.<br>
+					Saisir le nom d'un personnage, ... pour rechercher les informations correspondantes, et enregistrer vos
+					recherches favorites pour les retrouver facilement.</p>
+			</header>
+			<hr>
+
+			<main id="conteneur">
+				<!-- Section de recherche (avec résultats) -->
+				<section id="section-recherche">
+
+					<div id="bloc-recherche">
+						<!-- Champ de recherche -->
+						<input id="search" type="text" placeholder="Example : Obi Wan Kenobi" list="datalistRecherche" required/>
+						<datalist id="datalistRecherche">
+						</datalist>
+
+						<!-- Boutons -->
+						<button id="btn-lancer-recherche" type="button" class="btn_clicable" title="Lancer la recherche">
+							<!-- Icone provenant de flaticon.com -->
+							<img src="images/loupe.svg" alt="Loupe pour recherche" width=22>
+						</button>
+
+						<button id="btn-favoris" type="button" title="Ajouter la recherche aux favoris">
+							<!-- Icone étoile vide => Recherche pas en favoris -->
+							<img src="images/etoile-vide.svg" alt="Etoile vide" width=22>
+
+							<!-- Icone étoile pleine => Recherche en favoris -->
+							<!-- <img src="images/etoile-pleine.svg" alt="Etoile pleine" width=22 > -->
+
+							<!-- (Icones provenant de flaticon.com) -->
+						</button>
+					</div>
+
+					<!-- Résultats de recherche -->
+					<div id="bloc-gif-attente">
+						<img src='images/attente-ajax.gif' alt="GIF Attente de résultats" width="150px" />
+					</div>
+					<div id="bloc-resultats">
+<!--						<div class="personnage">
+							<div class="image"></div>
+							<div class="info">
+								<h2>Obi-wan Kenobi</h2>
+								<p>Gender : Male</p>
+								<p>Date of Birth : 57BBY</p>
+							</div>
+							<div class="btns">
+								<button class="btn-plus" type="button">
+									<img src="images/etoile-vide.svg" alt="Etoile vide" width=22>
+								</button>
+								<button class="btn-plus" type="button">VOIR PLUS</button>
+							</div>
+						</div>-->
+					</div>
+
+
+					</div>
+				</section>
+
+				<!-- Section de séparation (avec la bordure verte) -->
+				<section id="section-separation"></section>
+
+				<!-- Section des recherches favorites -->
+				<section id="section-favoris">
+					<h2>Recherches favorites</h2>
+					<p>Cliquer sur une recherche favorite ci-dessus pour relancer celle-ci :</p>
+
+					<ul id="liste-favoris">
+
+						
+					</ul>
+<!--					<p class="info-vide">( &empty; Aucune recherche enregistrée )</p>-->
+				</section>
+
+			</main>
+		</section>
+	</section>
+	<script src="js/main.js" type="text/javascript"></script>
+</body>
+
+</html>

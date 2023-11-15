@@ -1,0 +1,258 @@
+/* Importation de la police Roboto */
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/* Définition des principales couleurs */
+:root {
+   --text-color: #fafafa; /* Texte presque blanc */
+   --background: #34495e; /* Fond bleu foncé */
+   --main-green: rgb(255, 232, 31);
+   --active-green: rgb(20, 156, 128);
+}
+
+* {
+   color: var(--text-color);
+}
+html {
+   margin: 0;
+   padding: 0;
+}
+body {
+   background: url('images/bg4.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   font: 14pt Roboto, Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+#yes {
+   min-height: 100vh;
+   background-color: rgba(0, 0, 0, 0.2);
+}
+#no {
+   margin: 0 auto;
+   width: 90%;
+}
+
+/* Paragraphes "Aucun résultat..." et "Aucune recherche..." */
+p.info-vide {
+   font-style: italic;
+}
+
+/* Partie En-tête */
+h1 {
+   /* margin-top: 1em; */
+   text-align: center;
+   font-variant: small-caps;
+   font-size: 2.5em;
+   color: var(--main-green);
+   margin-top: 0;
+   padding-top: 1em;
+}
+
+p#explication {
+   font-size: 1.2em;
+}
+
+/* Conteneur principal */
+#conteneur {
+   display: flex;
+   flex: 1;
+   margin: 0 auto;
+   padding-top: 30px;
+   padding-bottom: 30px;
+}
+
+/* Section Recherche (avec résultats) */
+#section-recherche {
+   margin-top: 0;
+   flex: 1 1 auto;
+}
+
+#bloc-recherche {
+   display: flex;
+   margin: 0 auto;
+   min-width: 450px;
+   flex-direction: row;
+}
+#bloc-recherche > input[type='text'],
+#bloc-recherche > button {
+   display: block;
+   font-size: 1.2em;
+}
+
+#bloc-recherche > input[type='text'] {
+   color: #2d2d2d; /* Presque noir */
+   flex: 1;
+   padding: 0.7em;
+   border: 0.3em solid var(--main-green);
+}
+
+#bloc-recherche > button {
+   padding: 0.8em 0.8em;
+   /* Bordure invisible pour que le hover ne bouge pas le bouton */
+   border: 1px solid var(--main-green);
+
+   /* Par défaut, les boutons sont en gris
+	 (S'ils sont "clicables", ils passent en vert) */
+   background-color: #bebebe;
+}
+
+/* Apparences des boutons clicables */
+#bloc-recherche > button.btn_clicable {
+   background-color: var(--main-green);
+}
+
+#bloc-recherche > button:focus {
+   /* Pour éviter un affichage disgracieux
+		quand le bouton reste en focus */
+   outline: 0 !important;
+}
+
+#bloc-recherche > button.btn_clicable:hover {
+   cursor: pointer;
+   border: 1px solid white;
+}
+
+#bloc-recherche > button.btn_clicable:active {
+   background-color: var(--active-green);
+}
+
+/* GIF de chargement (caché par défaut) */
+#bloc-gif-attente {
+   display: none;
+   margin: 40px;
+   text-align: center;
+}
+
+#bloc-resultats p.res::before {
+   /* Affichage d'une flèche devant chaque résultat
+		(Cf. https://unicode-table.com/fr/21E8/ ) */
+   content: '\21E8\00A0';
+}
+
+#bloc-resultats .personnage {
+   background-color: rgba(0, 0, 0, 0.6);
+   border-radius: 30px;
+   margin-top: 20px;
+   display: flex;
+   align-items: center;
+   transition: all 0.5s ease-in-out;
+}
+
+#bloc-resultats .personnage .info {
+   margin-left: 50px;
+   transition: all 0.5s ease-in-out;
+}
+#bloc-resultats .personnage .info p {
+   transition: all 0.5s ease-in-out;
+   margin-left: 50px;
+
+}
+#bloc-resultats .personnage .info p.hidden {
+   transition: all 0.5s ease-in-out;
+   opacity: 0;
+}
+
+#bloc-resultats .personnage .image {
+   width: 250px;
+   height: 250px;
+   border: 1px var(--main-green);
+   border-radius: 30px;
+   background-image: url('images/perso/Obi-Wan.jpg');
+   background-size: cover;
+   background-position: center;
+   transition: all 0.5s ease-in-out;
+}
+#bloc-resultats .personnage .image.plus{
+   transition: all 0.5s ease-in-out;
+   width: 350px;
+   height: 350px;
+}
+
+#bloc-resultats .btns {
+   display: flex;
+   align-self: flex-end;
+   justify-self: flex-end;
+   margin-left: auto;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   height: 250px;
+   margin-right: 25px;
+   transition: all 0.5s ease-in-out;
+}
+#bloc-resultats .btns.plus {
+   transition: all 0.5s ease-in-out;
+   height: 350px;
+   margin-right: 25px;
+}
+
+#bloc-resultats .btn-plus {
+   padding: 20px;
+   background-color: var(--main-green);
+   border: none;
+   border-radius: 30px;
+   color: black;
+   margin-top: 25px;
+   margin-bottom: 25px;
+   transform: scale(1);
+   transition: all 0.2s ease-in-out;
+}
+
+#bloc-resultats .btn-plus:hover {
+   cursor: pointer;
+   transform: scale(1.05);
+   transition: all 0.2s ease-in-out;
+}
+
+/* Section de la barre de séparation */
+#section-separation {
+   border-left: 2px dashed var(--main-green);
+   margin: 0 20px;
+}
+
+/* Section des recherches favorites */
+#section-favoris {
+   flex: 0 0 300px;
+   margin-top: 0;
+   margin-bottom: 20px;
+}
+
+#section-favoris h2 {
+   margin-top: 0;
+}
+
+#section-favoris p {
+   margin-bottom: 8px;
+}
+
+#liste-favoris li {
+   margin-bottom: 8px;
+   cursor: pointer;
+}
+
+#liste-favoris li span {
+   text-decoration: underline;
+}
+
+#liste-favoris li span:hover {
+   color: var(--main-green);
+}
+
+/* Media-query pour gérer l'affichage sur petit écran */
+@media (max-width: 900px) {
+   #conteneur {
+      flex-direction: column-reverse;
+   }
+
+   #section-separation {
+      border-top: 2px dashed rgb(26, 188, 156);
+      margin: 0 -10px 40px -10px;
+   }
+
+   #section-favoris {
+      flex: 0;
+   }
+}
